@@ -45,6 +45,10 @@ body.dark {
     --info-button-active: #3A7CFD;
 }
 
+.tarefa input{
+    margin-right: 0.75;
+}
+
 body {
     background: var(--bg-body);
 }
