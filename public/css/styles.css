@@ -59,11 +59,12 @@ header {
     padding: 3rem 1.75rem 0;
 }
 
-header > div {
-    max-width: 33.75rem;
-    margin-inline: auto;
+header div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
-header div div{
+header div{
     display: flex;
     align-items: center;
     justify-content: space-between;
