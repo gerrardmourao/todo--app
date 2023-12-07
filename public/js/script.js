@@ -20,7 +20,7 @@ function excluirTarefa(id) {
         body: JSON.stringify({ id })
     })
 
-}
+}                 
 
 function descompletarTarefa(id) {
     fetch("http://localhost:3000/descompletar", {
