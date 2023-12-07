@@ -1,57 +1,54 @@
+{{#if tarefas}}
+
 <main>
     <section class="tarefas">
+        {{#each tarefas}}
         <div class="tarefa">
             <form action="">
-                <div>
-                    <input type="radio" id="tarefa-1">
-                    <label for="tarefa-1">Completar curso de JavaScript</label>
+                {{#if this.completa}}
+                <div class="completa">
+                    <input type="checkbox" id="tarefa-{{this.id}}" checked onchange="descompletarTarefa({{this.id}})">
+                    <label for="tarefa-{{this.id}}">{{this.descricao}}</label>
                 </div>
 
-                <button type="button">
-                    <img src="/imagens/x-icon.png" alt="Ícone de X"
-                </button>
-            </form> 
-        </div>
-        <div class="tarefa">
-            <form action="">
-                <div>
-                    <input type="radio" id="tarefa-1">
-                    <label for="tarefa-1">Completar curso de JavaScript</label>
-                </div>
 
-                <button type="button">
-                    <img src="/imagens/x-icon.png" alt="Ícone de X">
-                </button>
-            </form> 
-        </div>
-        <div class="tarefa">
-            <form action="">
+                {{else}}
                 <div>
-                    <input type="radio" id="tarefa-1">
-                    <label for="tarefa-1">Completar curso de JavaScript</label>
+                    <input type="checkbox" id="tarefa-{{this.id}}" onchange="completarTarefa({{this.id}})">
+                    <label for="tarefa-{{this.id}}">{{this.descricao}}</label>
                 </div>
+                {{/if}}
 
-                <button type="button">
-                    <img src="/imagens/x-icon.png" alt="Ícone de X">
+
+                <button onclick="excluirTarefa({{this.id}})">
+                    <img src="/imagens/x-icon.png" alt="ícone de X para excluir uma tarefa">
                 </button>
-            </form> 
+            </form>
         </div>
-        <div class="informacoes"> 
-            <p>5 tarefas ativas</p>
-                
+
+        {{/each}}
+
+
+        <div class="informacoes">
+            <p>{{quantidadeTarefasAtivas}}tarefas ativas</p>
+
             <div class="botoes">
-                <a href="" class="active">Todas</a>
-                <a href="">Ativas</a>
-                <a href="">Completas</a>
-            </div>   
-               
-            <a href=>Limpar tarefas</a>
+                <a href="/" class="active">Todas</a>
+                <a href="/ativas">Ativas</a>
+                <a href="/completas">Completas</a>
+            </div>
+
+            <a href="/limpartarefas">Limpar tarefas</a>
         </div>
     </section>
-    
+
+
+
     <section class="botoes">
-        <a href="" class="active">Todos</a>
-        <a href="">Ativas</a>
-        <a href="">Completas</a>
+        <a href="/" class="active">Todas</a>
+        <a href="/ativas">Ativas</a>
+        <a href="/completas">Completas</a>
     </section>
 </main>
+
+{{/if}}
